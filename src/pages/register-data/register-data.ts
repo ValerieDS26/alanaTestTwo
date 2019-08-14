@@ -13,7 +13,7 @@ import { ToastController } from 'ionic-angular';
 export class RegisterDataPage {
   public formData: FormGroup;
   public maxDate: string;
-  private codeReference: string;
+  private codeReference: any;
 
   constructor(
     public navCtrl: NavController,
@@ -35,7 +35,7 @@ export class RegisterDataPage {
   }
 
   public registerForm(): void{
-    this.navCtrl.push(RegisterContactPage,{'form':this.formData});
+    this.navCtrl.push(RegisterContactPage,{'form':this.formData,'code':this.codeReference});
   }
 
   private getDateToday(): string{
@@ -43,7 +43,8 @@ export class RegisterDataPage {
     var dd = today.getDate();
     var mm = today.getMonth()+1; 
     var dayToString = dd.toString();
-    var monthToString = dd.toString();
+    var monthToString = mm.toString();
+
     if(dd<10) {
         dayToString = '0'+ +dayToString;
     } 
@@ -60,11 +61,13 @@ export class RegisterDataPage {
     modal.present();
     modal.onDidDismiss(data=>{
       console.log(data);
-      if(data.response == 200){
-        this.presentToast('El código de referencia fue aceptado.');
-        this.codeReference = data.code;
-      }else{
-        this.presentToast('El código de referencia fue rechazado.');
+      if(data){
+        if(data.response == 200){
+          this.presentToast('El código de referencia fue aceptado.');
+          this.codeReference = data.code;
+        }else{
+          this.presentToast('El código de referencia fue rechazado.');
+        }
       }
     });
   }

@@ -22,20 +22,6 @@ export class ServiceProvider {
     
   }
 
-  // public sendCode(data): Observable<any>{
-  //   let _params = {code: data};
-  //   var x;
-  //   this.http.post('https://apidev.alanajobs.com/candidate/check-code', _params)
-  //            .pipe(map((response) => response.json()))
-  //            .subscribe((data) => {
-  //                 console.log(data);
-  //                 x=data;
-  //             },err=>{
-  //                  console.log(err);
-  //             });
-  //   return x;
-  // }
-
   public sendCode(data): Observable<any>{
     let _params = {code: data};
     return this.http.post('https://apidev.alanajobs.com/candidate/check-code', _params)

@@ -14,6 +14,7 @@ export class RegisterContactPage {
   public formContact: FormGroup;
   public countries : Array<string>;
   private formData: any;
+  private codeRefence: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public formBuilder: FormBuilder) {
 
@@ -28,12 +29,12 @@ export class RegisterContactPage {
   }
 
   ionViewDidLoad() {
-    this.formData = this.navParams.get('form').value;
-    console.log(this.formData);
+    this.formData = this.navParams.get('form');
+    this.codeRefence=this.navParams.get('code');
   }
 
   public registerAccount(): void{
-    this.navCtrl.push(RegisterAccountPage,{'form':this.formContact});
+    this.navCtrl.push(RegisterAccountPage,{'formContact':this.formContact, 'formData': this.formData,'code': this.codeRefence });
   }
 
 }

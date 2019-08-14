@@ -5,12 +5,6 @@ import { ServiceProvider } from '../../providers/service/service'
 import { codeReference } from '../../class/codeReference'
 import { ToastController } from 'ionic-angular';
 
-/**
- * Generated class for the ModalCheckCodePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -39,7 +33,6 @@ export class ModalCheckCodePage {
   public sendCode(): void{
     this.serviceProvider.sendCode(this.formCode.value.code)
     .subscribe((response)=>{
-      console.log(response);
       this.viewCtrl.dismiss({'response':response.code, 'code':this.formCode.value.code});
     },err=>{
       console.log(err);
@@ -48,7 +41,6 @@ export class ModalCheckCodePage {
       }
     })
 
-    //console.log(this.serviceProvider.sendCode(this.formCode.value.code));
   }
 
   public dismiss(): void {
