@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tus Datos</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="formData" (ngSubmit)="registerForm()">
+
+    <ion-item>
+      <ion-label floating>NOMBRE</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item  no-lines *ngIf="formData.get('name').errors && formData.get('name').dirty">
+      <p color="danger" class="p-message-error" *ngIf="formData.get('name').hasError('pattern')">El nombre no debe contener caracteres especiales.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>APELLIDO</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="formData.get('lastName').errors && formData.get('lastName').dirty">
+        <p color="danger" class="p-message-error" *ngIf="formData.get('lastName').hasError('pattern')">El apellido no debe contener caracteres especiales.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>SEXO</ion-label>
+      <ion-select formControlName="gender">
+          <ion-option value="35">Hombre</ion-option>
+          <ion-option value="36">Mujer</ion-option>
+          <ion-option value="38">Otro</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>FECHA DE NACIMIENTO</ion-label>
+      <ion-datetime formControlName="birthDate" displayFormat="DD-MM-YYYY" [max]="maxDate" placeholder="DD-MM-YYYY"></ion-datetime>
+    </ion-item>
+    <button ion-button round type="submit" full [disabled]="!formData.valid" class="btn-submit">Siguiente</button>
+  </form>
+</ion-content>
+

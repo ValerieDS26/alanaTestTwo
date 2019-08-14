@@ -1,0 +1,16 @@
+<ion-content class="main-view" padding>
+    <div class="div-modal" text-center>
+      <img src="../assets/imgs/modal-alana.png"/>
+      <p>¿Tienes un <span class="span-code">código</span> referencial de un amigo #alaninja?</p>
+      <p class="p-share">(Comparte este código)</p>
+      <form [formGroup]="formCode" (ngSubmit)="sendCode()">
+        <ion-item>
+          <ion-label stacked>Escribe el código aquí</ion-label>
+          <ion-input type="text" formControlName="code"></ion-input>
+        </ion-item>
+
+        <button ion-button round full [disabled]="!formCode.valid" class="btn-code">Enviar</button>
+      </form>
+      <button ion-button full outline class="btn-code" (click)="dismiss()">No tengo un código</button>
+    </div>
+</ion-content>

@@ -1,0 +1,46 @@
+.md{
+    page-register-contact {
+        
+        form{
+            height: 100%;
+            position: relative;
+        }
+
+        .grid{
+            padding: 0px;
+        }
+
+        .col{
+            padding: 0px;
+        }
+
+        .col-code{
+            .text-input-md{
+                margin-bottom:10.05px 
+            }
+            .label-md[stacked]{
+                color: #c9c8c8 
+            }
+            
+        }
+
+        .col-phone{
+            .item-label-floating .text-input-md {
+                padding-left: 10px;
+            }
+            ion-input{
+                border-left: 1px solid #ccc; 
+            }
+            .item-md {
+                padding-left: 0px;
+            }
+            .label-md[floating] {
+                padding-left: 10px;
+                color: #c9c8c8
+            }
+        }
+
+
+
+    }
+}

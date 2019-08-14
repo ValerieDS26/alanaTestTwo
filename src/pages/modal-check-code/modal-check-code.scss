@@ -1,0 +1,47 @@
+.md{
+    page-modal-check-code {
+
+        .main-view{
+            background: rgba(0,0,0,0.5);
+        }
+        .div-modal {
+            position: relative;
+            top: 15%;
+            left: 0;
+            right: 0;
+            width: 85%;
+            height: 70%;
+            background: #fff;
+            border-radius: 15px;
+             padding: 20px;
+             z-index: 100;
+             margin: 0 auto;
+            color: #333;
+            overflow: hidden;
+            overflow-y: scroll;
+
+            .span-code{
+                color: color($colors-md,primary);
+            }
+
+            .p-share{
+                color: #888585;
+            }
+            button{
+                margin: 18px 0px;
+                text-transform: none;
+            }
+            
+        }
+
+        .button-full.button-outline {
+            border-radius: 16px;
+            border-right-width: 1px;
+            border-left-width: 1px;
+        }
+
+
+
+    }
+
+}

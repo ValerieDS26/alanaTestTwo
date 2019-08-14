@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Tu Contacto</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+    <form [formGroup]="formContact" (ngSubmit)="registerAccount()">
+  
+      <ion-item>
+        <ion-label floating>PAÍS</ion-label>
+        <ion-select formControlName="country">
+            <ion-option *ngFor="let country of countries" value="{{country}}" >{{ country }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 class="col-code">
+            <ion-item>
+              <ion-label stacked>CÓDIGO</ion-label>
+              <ion-input type="text" placeholder="+00" formControlName="codCountry"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-9 class="col-phone">
+            <ion-item>
+              <ion-label floating>TELÉFONO</ion-label>
+              <ion-input type="number" formControlName="phone"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-label floating>DIRECCIÓN</ion-label>
+        <ion-input type="text" formControlName="direction"></ion-input>
+      </ion-item>
+      <button ion-button round type="submit" full [disabled]="!formContact.valid" class="btn-submit">Siguiente</button>
+    </form>
+  </ion-content>
